@@ -1,0 +1,302 @@
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    $very-dark-cyan: hsl(183,
+    100%,
+    15%);
+    $darker-grayish-cyan: hsl(186,
+    14%,
+    43%);
+    $dark-grayish-cyan: hsl(184,
+    14%,
+    56%);
+    $light-grayish-cyan: hsl(185,
+    41%,
+    84%);
+    $lighter-grayish-cyan: hsl(189,
+    41%,
+    97%);
+    $white: hsl(0,
+    0%,
+    100%);
+    $strong-cyan: hsl(172,
+    67%,
+    45%);
+    body {
+        font-family: "Space Mono", monospace;
+        background-color: $light-grayish-cyan;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .card {
+        width: 921px;
+        height: 481px;
+        background-color: white;
+        border-radius: 24px;
+        display: flex;
+        justify-content: space-between;
+        padding: 32px;
+    }
+    
+    .container .splitter {
+        padding-bottom: 60px;
+    }
+    
+    input[type="number"] {
+        all: unset;
+        width: calc(100% - 55px);
+        border-radius: 5px;
+        text-align: right;
+        padding: 5px 10px;
+        font-size: 24px;
+        color: $very-dark-cyan;
+        font-weight: 700;
+        background-color: $lighter-grayish-cyan;
+        border: 2px solid transparent;
+    }
+    
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+    
+    input[type="number"]:focus {
+        border-color: $strong-cyan;
+    }
+    
+    h3 {
+        font-size: 16px;
+        color: $darker-grayish-cyan;
+        padding-bottom: 3px;
+    }
+    
+    // Left Side
+    .input-side {
+        display: grid;
+        grid-template-rows: 77px 152px 77px;
+        grid-gap: 41px;
+        padding: 20px;
+        padding-right: 45px;
+    }
+    
+    .tip-amount img {
+        position: absolute;
+        padding-left: 15px;
+        padding-top: 15px;
+    }
+    
+    .person img {
+        position: absolute;
+        padding-left: 15px;
+        padding-top: 15px;
+    }
+    
+    .inputs {
+        font-size: 16px;
+        color: $darker-grayish-cyan;
+        margin-bottom: 15px;
+    }
+    
+    .tip-percent {
+        &__tips {
+            border-radius: 3px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            align-content: center;
+            grid-gap: 14px;
+            input[type="radio"] {
+                opacity: 0;
+                position: fixed;
+                width: 0;
+            }
+        }
+        label {
+            width: 117px;
+            height: 48px;
+            background-color: $very-dark-cyan;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        label:hover {
+            background-color: $light-grayish-cyan;
+            color: $very-dark-cyan;
+        }
+        input[type="radio"]:checked+label {
+            background-color: $strong-cyan;
+            color: $very-dark-cyan;
+        }
+    }
+    
+    #tipCustom {
+        width: 117px;
+        padding: 0;
+        text-align: center;
+    }
+    
+    .person {
+        &__info {
+            display: grid;
+            grid-template-columns: 10fr 9fr;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5px;
+            &__error {
+                text-align: right;
+                color: crimson;
+                display: none;
+            }
+        }
+        &.error &__info__error {
+            display: block;
+        }
+        &.error input {
+            border: 2px solid rgba(220, 20, 60, 0.795);
+        }
+    }
+    
+    // Right Sice
+    .output-side {
+        width: 413px;
+        height: 417px;
+        border-radius: 14px;
+        background-color: $very-dark-cyan;
+        padding: 40px;
+    }
+    
+    .amount__div {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+    
+    .amount__div .name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .amount__div h2 {
+        font-size: 16px;
+        color: white;
+        font-weight: 700;
+    }
+    
+    .amount__div h3 {
+        font-size: 14px;
+        color: $darker-grayish-cyan;
+        font-weight: 700;
+    }
+    
+    .amount__div .amount {
+        font-size: 48px;
+        font-weight: 700;
+        color: $strong-cyan;
+    }
+    
+    .output-side button {
+        all: unset;
+        width: 333px;
+        height: 48px;
+        border-radius: 4px;
+        font-size: 20px;
+        background-color: $strong-cyan;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-top: 100px;
+        text-align: center;
+        &:disabled {
+            background-color: $darker-grayish-cyan;
+        }
+    }
+    
+    @media screen and (max-width:920px) {
+        .container {
+            margin-top: 60px;
+        }
+        .card {
+            width: 375px;
+            height: 789px;
+            border-radius: 25px 25px 0 0;
+            flex-direction: column;
+            padding: 25px;
+        }
+        .container .splitter {
+            margin-top: 100px;
+        }
+        .input-side {
+            grid-template-rows: 77px 216px 77px;
+            grid-gap: 32px;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+        }
+        .tip-amount h3 {
+            margin-bottom: 5px;
+        }
+        .tip-percent {
+            &__tips {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 16px;
+                &__tip {
+                    width: 100%;
+                    height: 48px;
+                }
+            }
+        }
+        input[type="number"] {
+            margin: 0;
+        }
+        .tip-percent {
+            label {
+                width: 134px;
+                height: 48px;
+            }
+        }
+        .output-side {
+            width: 327px;
+            height: 259px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .amount__div {
+            margin: 0;
+            padding: 0;
+        }
+        .amount__div {
+            .amount {
+                font-size: 32px;
+            }
+        }
+        .output-side button {
+            width: 281px;
+            margin-top: 0;
+        }
+    }
