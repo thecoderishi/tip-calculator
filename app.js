@@ -33,7 +33,7 @@ const removeError = () => {
     person.classList.remove('error')
 }
 
-const tipCalc = (tip) => {
+const tipCalc = (tip = 0) => {
     buttonEnable()
     if (!people || people === 0) {
         setError()
@@ -60,7 +60,8 @@ const resetCustomTip = () => {
 tipCustom.addEventListener('input', (e) => {
     if (e.target.value !== '') {
         resetTips()
-        tip = parseFloat(e.target.value)
+        tip = parseFloat(e.target.value);
+        tipCalc(tip);
     }
 })
 
@@ -82,8 +83,8 @@ totalPersons.addEventListener('input', (e) => {
 const tipCalculation = () => tips.forEach((tip) => {
     tip.addEventListener('click', (e) => {
         resetCustomTip();
-        tip = parseFloat(e.target.value)
-        tipCalc(tip)
+        tip = parseFloat(e.target.value);
+        tipCalc(tip);
     })
 })
 
