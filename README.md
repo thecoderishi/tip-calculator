@@ -1,4 +1,4 @@
-# Frontend Mentor - Tip calculator app
+# Frontend Mentor - Tip Calculator App
 
 DEMO: https://quiet-pavlova-e4b38a.netlify.app
 
